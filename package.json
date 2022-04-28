@@ -1,0 +1,22 @@
+{
+  "name": "p7_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToDestiny/P7_COLAS_ANTHONY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToDestiny/P7_COLAS_ANTHONY/issues"
+  },
+  "homepage": "https://github.com/ToDestiny/P7_COLAS_ANTHONY#readme",
+  "devDependencies": {
+    "bootstrap": "^3.4.1"
+  }
+}
