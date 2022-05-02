@@ -58,5 +58,22 @@ header img {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 20px;
+	margin: 20px 0px 20px 0px;
+}
+
+.form-control::placeholder {
+	color: white;
+}
+
+.filters {
+	margin-left: 45px;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+}
+
+#ingredients, #ustensiles, #appareils {
+	height: 4em;
+	width: 10em;
+	margin: 10px;
 }
