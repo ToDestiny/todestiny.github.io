@@ -43,3 +43,20 @@ header img {
 .left {
 	left: -30px
 }
+
+.card {
+	max-width: 20em;
+}
+
+.card-top {
+	height: 10em;
+	width: 20em;
+	background: #C7BEBE;;
+}
+
+.card-center {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px;
+}
