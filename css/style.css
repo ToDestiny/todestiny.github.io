@@ -61,10 +61,6 @@ header img {
 	margin: 20px 0px 20px 0px;
 }
 
-.form-control::placeholder {
-	color: white;
-}
-
 .filters {
 	margin-left: 45px;
 	display: flex;
@@ -76,4 +72,28 @@ header img {
 	height: 4em;
 	width: 10em;
 	margin: 10px;
+}
+
+#ingredients::placeholder,
+#ustensiles::placeholder,
+#appareils::placeholder {
+	color: white;
+}
+
+.filter-wrapper {
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper span {
+	position: relative;
+	z-index: 999;
+	/* color: white; */
+}
+
+.wrapper input {
+	margin-right: -200px;
 }
