@@ -1,7 +1,7 @@
 @use './base' as *;
 @use './component' as *;
 
-//Header
+//Header section
 .header {
 	display: flex;
 	justify-content: center;
@@ -13,4 +13,23 @@
 		height: auto;
 		margin: 2em auto 1em;
 	}
+}
+
+// Badges section
+.badges-container {
+	margin: 1em 0;
+	display: none;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+//Recipe grid
+#grid {
+	margin-top: 4em;
+	max-width: 1110px;
+	position: absolute;
+	top: 270px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-gap: 2em;
 }
