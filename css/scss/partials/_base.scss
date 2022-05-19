@@ -1,0 +1,33 @@
+//Colors
+$color_blue: #3282F7;
+$color_green: #68D9A4;
+$color_red: #ED6454;
+
+$color_darkGrey: #C7BEBE;
+$color_lightGrey: #E7E7E7;
+
+$color_white: #FFF;
+$color_black: #000;
+
+
+//Fonts
+$font_Roboto: 'Roboto', sans-serif;
+$font_Lato: 'Lato', sans-serif;
+
+
+
+//Reset
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	font-family: $font_Lato;
+}

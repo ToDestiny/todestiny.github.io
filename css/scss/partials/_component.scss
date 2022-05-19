@@ -1,0 +1,22 @@
+@use './base' as *;
+
+//Form
+.header__form {
+	position: relative;
+
+	.form__input {
+		border: none;
+		font-size: 1rem;
+		padding: 1.8em;
+		background-color: $color_lightGrey;
+		color: $color_black;
+	}
+
+	.form__icon {
+		color: $color_black;
+		font-size: 1.3rem;
+		position: absolute;
+		right: .8em;
+		top: 1em;
+	}
+}
