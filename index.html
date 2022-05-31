@@ -1,55 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- normalize.css -->
-		<link rel="stylesheet" href="./css/normalize.css" type="text/css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Normalize.css -->
+	<link rel="stylesheet" href="./css/normalize.css" type="text/css">
 
-		<!-- FontAwesome -->
-		<script src="https://kit.fontawesome.com/581b080686.js" crossorigin="anonymous"></script>
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/581b080686.js" crossorigin="anonymous"></script>
 
-		<!-- Google fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
-			rel="stylesheet">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap"
+		rel="stylesheet">
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-			integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-		<!-- Stylesheet -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-			integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-			<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="./css/style.css">
 
-		<title>Les petits plats</title>
+	<title>Les petits plats</title>
 </head>
 
 <body>
-	<div class="container-xl"
+
+	<div class="container-xl">
 		<header class="header">
 			<img class="header__img" src="./assets/logo.png" alt="Logo Les petits plats">
 			<form class="header__form">
 				<span class="fas fa-search form__icon"></span>
-				<input id="search" type="text" class="form-control form__input" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
+				<input id="search" type="text" class="form-control form__input" placeholder="Rechercher une recette"
+					aria-label="rechercher une recette">
 			</form>
 		</header>
 		<div class="badges-container"></div>
+		<div class="filter">
+			<div class="filter-container filter-container--ingredients">
+				<button id="ingredientsBtn" class="filter-btn-toggle filter-btn-toggle--ingredients">Ingredients <span
+						class="fas fa-angle-down filter-btn-toggle__icon"></span></button>
+				<div class="filter-input filter-input__ingredients">
+					<input type="text" id="filter-input-ingredients" class="filter-input__text filter-input__text--ingredients"
+						placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient" />
+					<button class="filter-input__btn filter-input__btn--ingredients" type="button"><span
+							class="fas fa-angle-up filter-btn-toggle__icon"></span></button>
+				</div>
+				<ul class="filter-list filter-list--ingredients" id="ingredients-filter-list"></ul>
+			</div>
+			<div class="filter-container filter-container--appliances">
+				<button id="appliancesBtn" class="filter-btn-toggle filter-btn-toggle--appliances">Appareils <span
+						class="fas fa-angle-down filter-btn-toggle__icon"></span></button>
+				<div class="filter-input filter-input--appliances" aria-hidden="true">
+					<input type="text" id="filter-input-appliances" class="filter-input__text filter-input__text--appliances"
+						placeholder="Rechercher un appareil" aria-label="Rechercher un appareil" />
+					<button class="filter-input__btn filter-input__btn--appliances" type="button"><span
+							class="fas fa-angle-up filter-btn-toggle__icon"></span></button>
+				</div>
+				<ul class="filter-list filter-list--appliances" id="appliances-filter-list"></ul>
+			</div>
+			<div class="filter-container filter-container--ustensils">
+				<button id="ustensilsBtn" class="filter-btn-toggle filter-btn-toggle--ustensils">Ustensiles <span
+						class="fas fa-angle-down filter-btn-toggle__icon"></span></button>
+				<div class="filter-input filter-input--ustensils">
+					<input type="text" id="filter-input-ustensils" class="filter-input__text filter-input__text--ustensils"
+						placeholder="Rechercher un ustensile" aria-label="Rechercher un ustensile" />
+					<button class="filter-input__btn filter-input__btn--ustensils" type="button"><span
+							class="fas fa-angle-up filter-btn-toggle__icon"></span></button>
+				</div>
+				<ul class="filter-list filter-list--ustensils" id="ustensils-filter-list"></ul>
+			</div>
+		</div>
+		<p class="no-results-text">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes »,
+			« poisson », etc.</p>
 		<main id="grid">
+
 		</main>
 	</div>
 
-	<!-- Bootstrap scripts -->
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-	<!-- script -->
+
+
+
+	<!-- Bootstrap Scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+		crossorigin="anonymous"></script>
+
+	<!-- Script -->
 	<script type="module" src="./scripts/pages/index.js"></script>
 </body>
 

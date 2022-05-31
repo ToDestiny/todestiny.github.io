@@ -13,6 +13,24 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(255, 255, 255);
+}
+
 .header__form {
   position: relative;
 }
@@ -29,6 +47,80 @@ body {
   position: absolute;
   right: 0.8em;
   top: 1em;
+}
+
+.badge {
+  font-size: 0.75rem;
+  color: #FFF;
+  padding: 0.8em 1em;
+  border-radius: 5px;
+}
+.badge--ingredient {
+  background-color: #3282F7;
+}
+.badge--appliance {
+  background-color: #68D9A4;
+}
+.badge--ustensil {
+  background-color: #ED6454;
+}
+.badge__icon {
+  font-size: 1rem;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+.filter-btn-toggle {
+  border: none;
+  display: block;
+  border-radius: 5px;
+  font-size: 0.875rem;
+  color: #FFF;
+}
+.filter-btn-toggle--ingredients {
+  background-color: #3282F7;
+}
+.filter-btn-toggle--appliances {
+  background-color: #68D9A4;
+}
+.filter-btn-toggle--ustensils {
+  background-color: #ED6454;
+}
+.filter-btn-toggle__icon {
+  margin-left: 1.5em;
+}
+
+.filter-input {
+  width: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.filter-input ::placeholder {
+  color: #E7E7E7;
+  font-weight: normal;
+}
+.filter-input__text {
+  margin-bottom: 1em;
+  color: #FFF;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+}
+.filter-input__text:focus {
+  outline: 0;
+}
+.filter-input__btn {
+  padding: 0;
+  color: #FFF;
+  background-color: transparent;
+  border: none;
+}
+
+.no-results-text {
+  margin-top: 3em;
+  text-align: center;
+  display: none;
 }
 
 .recipe-card {
@@ -103,6 +195,49 @@ body {
   display: none;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.filter {
+  margin-top: 1em;
+  display: flex;
+  align-items: flex-start;
+}
+.filter-container {
+  z-index: 1;
+  max-width: 550px;
+  margin-right: 1em;
+  color: #FFF;
+  padding: 1.2em;
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+.filter-container--ingredients {
+  background-color: #3282F7;
+}
+.filter-container--appliances {
+  background-color: #68D9A4;
+}
+.filter-container--ustensils {
+  background-color: #ED6454;
+}
+.filter-list {
+  list-style-type: none;
+  margin: 0;
+  max-width: 550px;
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  max-height: 350px;
+}
+.filter-list--ingredients {
+  overflow-y: scroll;
+}
+.filter-list__item {
+  cursor: pointer;
+  padding: 0.2em 0;
+  padding-right: 1.3em;
+}
+.filter-list__item--empty {
+  font-style: italic;
 }
 
 #grid {

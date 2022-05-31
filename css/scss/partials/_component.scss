@@ -1,88 +1,188 @@
 @use './base' as *;
 
+
 //Form
 .header__form {
-	position: relative;
+    position: relative;
 
-	.form__input {
-		border: none;
-		font-size: 1rem;
-		padding: 1.8em;
-		background-color: $color_lightGrey;
-		color: $color_black;
-	}
+    .form__input {
+        border: none;
+        font-size: 1rem;
+        padding: 1.8em;
+        background-color: $color_lightGrey;
+        color: $color_black;
+    }
 
-	.form__icon {
-		color: $color_black;
-		font-size: 1.3rem;
-		position: absolute;
-		right: .8em;
-		top: 1em;
-	}
+    .form__icon {
+        color: $color_black;
+        font-size: 1.3rem;
+        position: absolute;
+        right: .8em;
+        top: 1em;
+    }
 }
+
+
+
+//Badge
+.badge {
+    font-size: .75rem;
+    color: $color_white;
+    padding: .8em 1em;
+    border-radius: 5px;
+
+    &--ingredient {
+        background-color: $color_blue;
+    }
+
+    &--appliance {
+        background-color: $color_green;
+    }
+
+    &--ustensil {
+        background-color: $color_red;
+    }
+
+    &__icon {
+        font-size: 1rem;
+        margin-left: .5em;
+        cursor: pointer;
+    }
+}
+
+
+
+//Filter menu
+.filter-btn-toggle {
+    border: none;
+    display: block;
+    border-radius: 5px;
+    font-size: .875rem;
+    color: $color_white;
+
+    &--ingredients {
+        background-color: $color_blue;
+    }
+
+    &--appliances {
+        background-color: $color_green;
+    }
+
+    &--ustensils {
+        background-color: $color_red;
+    }
+
+    &__icon {
+        margin-left: 1.5em;
+    }
+}
+
+
+//Filter input
+.filter-input {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: baseline;
+
+    ::placeholder {
+        color: $color_lightGrey;
+        font-weight: normal;
+    }
+
+    &__text {
+        margin-bottom: 1em;
+        color: $color_white;
+        font-weight: bold;
+        background-color: transparent;
+        border: none;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    &__btn {
+        padding: 0;
+        color: $color_white;
+        background-color: transparent;
+        border: none;
+    }
+}
+
+
+
+//No-results text
+.no-results-text {
+    margin-top: 3em;
+    text-align: center;
+    display: none;
+}
+
+
 
 //Recipe card
 .recipe-card {
-	border-radius: 5px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
-	&__img-container {
-		height: 180px;
-		background-color: $color_darkGrey;
-		border-top-right-radius: 5px;
-		border-top-left-radius: 5px;
-	}
+    &__img-container {
+        height: 180px;
+        background-color: $color_darkGrey;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
 
-	&__text-container {
-		height: 220px;
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
-		background-color: $color_lightGrey;
-		padding: 1em;
-		display: grid;
-		grid-gap: 20px 10px;
-		grid-template-rows: 30px 138px;
-		grid-template-areas:
-			'title title title title time time'
-			'ingredients ingredients ingredients description description description';
+    &__text-container {
+        height: 220px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: $color_lightGrey;
+        padding: 1em;
+        display: grid;
+        grid-gap: 20px 10px;
+        grid-template-rows: 30px 138px;
+        grid-template-areas:    
+            'title title title title time time'
+            'ingredients ingredients ingredients description description description';
+        
+        .recipe-title {
+            grid-area: title;
+            font-size: 1rem;
+            align-self: baseline;
+        }
 
-		.recipe-title {
-			grid-area: title;
-			font-size: 1rem;
-			align-self: baseline;
-		}
+        .recipe-time {
+            grid-area: time;
+            font-weight: bold;
+            align-self: baseline;
 
-		.recipe-time {
-			grid-area: time;
-			font-weight: bold;
-			align-self: baseline;
+            &__icon {
+                margin-right: 2px;
+            }
+        }
 
-			&__icon {
-				margin-right: 2px;
-			}
-		}
+        .recipe-ingredients ul {
+            grid-area: ingredients;
+            list-style-type: none;
+            font-size: .7rem;
+            line-height: 1.2;
 
-		.recipe-ingredients ul {
-			grid-area: ingredients;
-			list-style-type: none;
-			font-size: .7rem;
-			line-height: 1.2;
+            .recipe-ingredient__name {
+                font-weight: bold;
+            }
+        }
 
-			.recipe-ingredient__name {
-				font-weight: bold;
-			}
-		}
-
-		.recipe-description {
-			height: 110px;
-			grid-area: description;
-			display: -webkit-box;
-			-webkit-line-clamp: 8;
-			-webkit-box-orient: vertical;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			font-size: .7rem;
-			line-height: 1.2;
-		}
-	}
+        .recipe-description {
+            height: 110px;
+            grid-area: description;
+            display: -webkit-box;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: .7rem;
+            line-height: 1.2;
+        }
+    }
 }

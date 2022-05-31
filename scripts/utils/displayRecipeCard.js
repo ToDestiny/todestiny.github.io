@@ -1,7 +1,7 @@
 //DOM variables
 const recipeGrid = document.getElementById('grid');
 
-// Affichage recette sous forme de carte
+//Affichage recette sous forme de carte
 const displayRecipeCard = (data) => {
     let gridContent = '';
 
