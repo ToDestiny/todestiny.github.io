@@ -34,7 +34,6 @@ function handleInputChange(event) {
 
         //Récupération des data filtrées
         dataManager.filterData(event.target.value.toLocaleLowerCase());
-        console.log(dataManager.filteredData);
 
         //Gestion de l'affichage du message d'erreur en fonction des résultats post-filtrage
         !dataManager.filteredData.length
