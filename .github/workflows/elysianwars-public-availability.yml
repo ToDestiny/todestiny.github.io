@@ -1,0 +1,46 @@
+name: Elysian Wars external availability
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Observe production, or test the owner notification path without a production outage'
+        type: choice
+        required: true
+        default: observe
+        options: [observe, drill_down, drill_recovery]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: elysianwars-external-availability
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    # Explicit opt-in, exact owned public repository, no private-runner billing or fork execution.
+    if: >-
+      github.repository == 'ToDestiny/todestiny.github.io' &&
+      github.ref == 'refs/heads/main' &&
+      github.event.repository.private == false &&
+      github.event.repository.fork == false &&
+      vars.EW_PUBLIC_MONITOR_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out only the public monitoring scripts
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts/monitoring
+      - name: Probe anonymous public website and API readiness twice
+        run: python3 -I -B scripts/monitoring/elysianwars_public_watch.py check --result "$RUNNER_TEMP/ew-public-health.json"
+      - name: Notify the owner only when an incident opens or recovers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MONITOR_MODE: ${{ inputs.mode || 'observe' }}
+        run: python3 -I -B scripts/monitoring/elysianwars_public_watch.py notify --result "$RUNNER_TEMP/ew-public-health.json" --mode "$MONITOR_MODE"
